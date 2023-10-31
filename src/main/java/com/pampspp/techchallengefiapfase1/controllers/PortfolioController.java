@@ -32,4 +32,9 @@ public class PortfolioController {
         return service.addPortfolio(portfolioDTO);
     }
 
+    @PutMapping
+    public PortfolioDTO updatePortfolio(@RequestBody PortfolioDTO portfolioDTO) {
+        return service.updatePortfolio(portfolioDTO);
+    }
+
 }

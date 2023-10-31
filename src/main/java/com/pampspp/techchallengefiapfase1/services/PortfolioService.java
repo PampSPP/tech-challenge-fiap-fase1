@@ -33,6 +33,12 @@ public class PortfolioService {
         return convertToDTO(savedPortfolio);
     }
 
+    public PortfolioDTO updatePortfolio(PortfolioDTO portfolioDTO) {
+        Portfolio portfolio = convertToEntity(portfolioDTO);
+        Portfolio savedPortfolio = repository.save(portfolio);
+        return convertToDTO(savedPortfolio);
+    }
+
     private PortfolioDTO convertToDTO(Portfolio portfolio) {
         PortfolioDTO dto = new PortfolioDTO();
         dto.setPortfolio_id(portfolio.getPortfolio_id());

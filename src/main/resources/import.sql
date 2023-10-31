@@ -20,3 +20,8 @@ INSERT INTO equities_quantity(equities_id, quantity, portfolio_id) VALUES ('3', 
 INSERT INTO equities_quantity(equities_id, quantity, portfolio_id) VALUES ('4', '7', '4');
 INSERT INTO equities_quantity(equities_id, quantity, portfolio_id) VALUES ('5', '10', '1');
 INSERT INTO equities_quantity(equities_id, quantity, portfolio_id) VALUES ('1', '7', '3');
+
+UPDATE customer SET portfolio_id = '1' WHERE id = '1';
+UPDATE customer SET portfolio_id = '2' WHERE id = '2';
+UPDATE customer SET portfolio_id = '3' WHERE id = '3';
+UPDATE customer SET portfolio_id = '4' WHERE id = '4';

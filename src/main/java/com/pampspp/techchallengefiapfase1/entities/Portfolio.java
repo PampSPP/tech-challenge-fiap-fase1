@@ -36,16 +36,6 @@ public class Portfolio {
         this.balance = balance;
     }
 
-    public Double addCash(double amount) {
-        this.balance += amount;
-        return this.balance;
-    }
-
-    public Double removeCash(double amount) {
-        this.balance -= amount;
-        return this.balance;
-    }
-
     public List<EquitiesQuantity> getEquitiesQuantityList() {
         return equitiesQuantityList;
     }
