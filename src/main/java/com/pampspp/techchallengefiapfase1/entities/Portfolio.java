@@ -1,5 +1,6 @@
 package com.pampspp.techchallengefiapfase1.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -11,7 +12,8 @@ public class Portfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long portfolio_id;
-    @OneToMany(mappedBy = "portfolio")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "portfolio")
+    @JsonManagedReference
     private List<EquitiesQuantity> equitiesQuantityList = new ArrayList<>();
     private Double balance;
 
@@ -42,5 +44,13 @@ public class Portfolio {
     public Double removeCash(double amount) {
         this.balance -= amount;
         return this.balance;
+    }
+
+    public List<EquitiesQuantity> getEquitiesQuantityList() {
+        return equitiesQuantityList;
+    }
+
+    public void setEquitiesQuantityList(List<EquitiesQuantity> equitiesQuantityList) {
+        this.equitiesQuantityList = equitiesQuantityList;
     }
 }

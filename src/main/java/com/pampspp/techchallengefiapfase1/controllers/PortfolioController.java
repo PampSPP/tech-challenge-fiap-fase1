@@ -1,35 +1,35 @@
 package com.pampspp.techchallengefiapfase1.controllers;
 
+import com.pampspp.techchallengefiapfase1.dto.PortfolioDTO;
 import com.pampspp.techchallengefiapfase1.entities.Portfolio;
 import com.pampspp.techchallengefiapfase1.repositories.PortfolioRepository;
+import com.pampspp.techchallengefiapfase1.services.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/portfolios")
 public class PortfolioController {
 
     @Autowired
-    private PortfolioRepository repository;
+    private PortfolioService service;
 
     @GetMapping
-    public List<Portfolio> findAll() {
-        List<Portfolio> result = repository.findAll();
-        return result;
+    public List<PortfolioDTO> findAll() {
+        return service.findAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Portfolio findById(@PathVariable Long id) {
-        Portfolio result = repository.findById(id).get();
-        return result;
+    public PortfolioDTO findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 
     @PostMapping
-    public Portfolio addPortfolio(@RequestBody Portfolio portfolio) {
-        Portfolio result = repository.save(portfolio);
-        return result;
+    public PortfolioDTO addPortfolio(@RequestBody PortfolioDTO portfolioDTO) {
+        return service.addPortfolio(portfolioDTO);
     }
 
 }
